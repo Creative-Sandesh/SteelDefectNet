@@ -1,220 +1,220 @@
 ````md
 <div align="center">
 
-# 🔍 SteelDefectNet
+# SteelDefectNet
 
-### Deep Learning for Steel Surface Defect Classification using the NEU Surface Defect Database
+**Robust Steel Surface Defect Classification using Deep Learning and PyTorch**
 
 <p>
   <img src="https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white">
-  <img src="https://img.shields.io/badge/PyTorch-Deep%20Learning-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white">
-  <img src="https://img.shields.io/badge/CNN-Computer%20Vision-blueviolet?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Dataset-NEU%20Surface%20Defect-success?style=for-the-badge">
+  <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white">
+  <img src="https://img.shields.io/badge/Computer%20Vision-CNN-blueviolet?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Dataset-NEU%20DET-success?style=for-the-badge">
 </p>
 
-Deep learning project for automatic steel surface defect classification using PyTorch and the NEU Surface Defect Database.
+[Dataset](https://www.kaggle.com/datasets/kaustubhdikshit/neu-surface-defect-database)
+•
+[PyTorch](https://pytorch.org/)
+
+---
+
+*A comprehensive study on neural network fundamentals, defect classification, model hardening, and hyperparameter optimization for real-world manufacturing environments.*
 
 </div>
 
 ---
 
-## 📖 Overview
+## Overview
 
-Steel manufacturing heavily relies on visual inspection to identify defects in production lines. Manual inspection is often:
+Steel manufacturing requires reliable surface inspection to maintain product quality. Traditional manual inspection is:
 
-- Slow and expensive
-- Inconsistent across operators
-- Unable to reliably detect subtle defects
+- Time-consuming
+- Expensive at scale
+- Subject to human inconsistency
+- Unable to consistently detect subtle defects
 
-This project develops robust deep learning models for **automatic steel surface defect classification** and investigates techniques to improve generalization under real-world manufacturing conditions.
-
-### Project Highlights
-
-- Neural network fundamentals and optimizer analysis
-- CNN-based defect classification
-- Data augmentation strategies
-- Batch Normalization and Dropout
-- Hyperparameter tuning and optimization
-- Robustness evaluation under production variability
+This project develops and evaluates deep learning models capable of automatically classifying steel surface defects while improving robustness against variations in lighting, orientation, and surface conditions.
 
 ---
 
-## 🎯 Objectives
+## Features
 
-- Build a six-class steel defect classification system.
-- Compare activation functions and optimization methods.
-- Improve model generalization using regularization techniques.
-- Evaluate model robustness under varying production conditions.
-- Optimize hyperparameters for maximum performance.
+### Neural Network Foundations
+- Custom 2-layer neural network implementation
+- ReLU vs Sigmoid comparison
+- CrossEntropyLoss vs MSELoss analysis
+- Optimizer benchmarking
+- Training stability experiments
+
+### Defect Classification
+- CNN built entirely using `nn.Module`
+- End-to-end PyTorch training pipeline
+- Per-class evaluation and confusion analysis
+
+### Model Hardening
+- Data augmentation
+- Batch Normalization
+- Dropout regularization
+- Generalization analysis
+
+### Hyperparameter Optimization
+- Grid Search
+- Learning Rate Scheduling
+- Bayesian Optimization with Optuna
 
 ---
 
-# 🏭 Dataset
+## Dataset
 
-## NEU Surface Defect Database
-
-The dataset contains grayscale images of steel strip surfaces.
+### NEU Surface Defect Database
 
 | Property | Value |
 |-----------|--------|
 | Total Images | 1,800 |
-| Number of Classes | 6 |
+| Classes | 6 |
 | Images per Class | 300 |
 | Resolution | 200 × 200 |
 | Image Type | Grayscale |
 
-### Defect Classes
+### Defect Categories
 
 | Class | Description |
-|--------|-------------|
+|-------|-------------|
 | Cr | Crazing |
 | In | Inclusion |
 | Pa | Patches |
 | PS | Pitted Surface |
-| RS | Rolled-In Scale |
+| RS | Rolled-in Scale |
 | Sc | Scratches |
 
-Dataset Source:
-
-[NEU Surface Defect Database](https://www.kaggle.com/datasets/kaustubhdikshit/neu-surface-defect-database)
-
 ---
 
-## 🧠 Project Workflow
+## Methodology
 
 ```text
-Dataset
-    ↓
-Preprocessing & Normalization
-    ↓
-Baseline CNN
-    ↓
-Model Hardening
-    ├── Data Augmentation
-    ├── Batch Normalization
-    └── Dropout
-    ↓
-Hyperparameter Tuning
-    ↓
-Final Evaluation
-````
-
----
-
-# 📂 Repository Structure
-
-```text
-SteelDefectNet/
-│
-├── NeuralNetwork.ipynb          # Main assignment notebook
-├── ANN.ipynb                    # Experimental notebook
-├── archive/
-│   └── NEU-DET/                 # Dataset directory
-│
-├── figures/                     # Generated plots
-├── models/                      # Saved model checkpoints
-├── README.md
-└── requirements.txt
+NEU Dataset
+     │
+     ├── Preprocessing
+     │      └── Normalization
+     │
+     ├── Baseline CNN
+     │
+     ├── Model Hardening
+     │      ├── Data Augmentation
+     │      ├── Batch Normalization
+     │      └── Dropout
+     │
+     ├── Hyperparameter Search
+     │
+     └── Final Evaluation
 ```
 
 ---
 
-# ⚙️ Features Implemented
+## Repository Structure
 
-## Part 0 – Neural Network Foundations
-
-* Custom 2-layer neural network using `nn.Module`
-* ReLU vs Sigmoid comparison
-* CrossEntropyLoss vs MSELoss analysis
-* Optimizer comparison:
-
-  * SGD
-  * SGD with Momentum
-  * Adam
-* Batch Normalization and Dropout experiments
-
----
-
-## Part A – Surface Defect Classification
-
-* Dataset loading using `ImageFolder`
-* Image preprocessing and normalization
-* CNN implementation from scratch
-* Training and validation pipeline
-* Accuracy and loss visualization
-* Per-class performance analysis
-* F1-score evaluation and confusion matrix
+```text
+SteelDefectNet/
+│
+├── NeuralNetwork.ipynb
+├── ANN.ipynb
+├── archive/
+│   └── NEU-DET/
+│
+├── figures/
+├── models/
+├── requirements.txt
+└── README.md
+```
 
 ---
 
-## Part B – Model Hardening
+## Implemented Experiments
 
-### Data Augmentation
+### Part 0 — Neural Network Foundations
 
-* Random Horizontal Flip
-* Random Rotation (±15°)
-* Random Crop
-
-### Regularization Techniques
-
-* Batch Normalization
-* Dropout (0.4)
-
-### Robustness Evaluation
-
-* Validation comparison of different configurations
-* Overfitting analysis
-* Generalization study for real-world production scenarios
+| Experiment | Description |
+|------------|-------------|
+| Activation Functions | ReLU vs Sigmoid |
+| Loss Functions | CrossEntropy vs MSE |
+| Optimizers | SGD, Momentum, Adam |
+| Stability Methods | BatchNorm / Dropout |
 
 ---
 
-## Part C – Hyperparameter Optimization
+### Part A — Surface Defect Classification
 
-### Grid Search
+- Dataset loading with `ImageFolder`
+- Data preprocessing and normalization
+- CNN training and validation
+- Learning curve visualization
+- F1-score and confusion matrix analysis
+
+---
+
+### Part B — Model Hardening
+
+#### Data Augmentation
+```python
+RandomHorizontalFlip()
+RandomRotation(15)
+RandomCrop(180)
+```
+
+#### Regularization
+```python
+BatchNorm2d()
+Dropout(0.4)
+```
+
+#### Objectives
+- Improve robustness
+- Reduce overfitting
+- Increase deployment reliability
+
+---
+
+### Part C — Hyperparameter Tuning
+
+#### Grid Search
 
 ```python
 learning_rates = [0.001, 0.01]
 batch_sizes = [16, 32]
 ```
 
-### Learning Rate Scheduling
+#### Learning Rate Scheduling
 
 ```python
-scheduler = StepLR(
-    optimizer,
+StepLR(
     step_size=5,
     gamma=0.5
 )
 ```
 
-### Bayesian Optimization
+#### Bayesian Optimization
+
+```python
+lr: 1e-4 → 1e-1
+batch_size: 8 → 64
+```
 
 Implemented using **Optuna**.
 
-Search space:
+---
 
-```python
-lr = 1e-4 to 1e-1
-batch_size = 8 to 64
-```
+## Technology Stack
+
+<div align="center">
+
+| Python | PyTorch | TorchVision | NumPy | Pandas | Matplotlib | Scikit-Learn | Optuna |
+|:------:|:--------:|:------------:|:------:|:-------:|:-----------:|:------------:|:-------:|
+
+</div>
 
 ---
 
-# 🛠 Tech Stack
-
-| Category                    | Tools         |
-| --------------------------- | ------------- |
-| Programming Language        | Python        |
-| Deep Learning               | PyTorch       |
-| Computer Vision             | TorchVision   |
-| Data Analysis               | NumPy, Pandas |
-| Visualization               | Matplotlib    |
-| Evaluation                  | Scikit-Learn  |
-| Hyperparameter Optimization | Optuna        |
-
----
-
-# 📦 Installation
+## Installation
 
 Clone the repository:
 
@@ -229,15 +229,15 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
-or install manually:
+or
 
 ```bash
-pip install torch torchvision matplotlib pandas numpy scikit-learn optuna
+pip install torch torchvision numpy pandas matplotlib scikit-learn optuna
 ```
 
 ---
 
-# ▶️ Running the Project
+## Running the Project
 
 Launch Jupyter Notebook:
 
@@ -251,58 +251,37 @@ Open:
 NeuralNetwork.ipynb
 ```
 
-Run all cells sequentially.
+Run all notebook cells sequentially.
 
 ---
 
-# 📊 Experiments Conducted
-
-### Optimizer Comparison
-
-* SGD
-* SGD + Momentum
-* Adam
-
-### Model Comparison
-
-1. Baseline CNN
-2. CNN + Data Augmentation
-3. CNN + Augmentation + BatchNorm + Dropout
-
-### Hyperparameter Search
-
-* Learning Rate Tuning
-* Batch Size Tuning
-* Bayesian Optimization using Optuna
-
----
-
-# 📈 Evaluation Metrics
+## Evaluation Metrics
 
 The models are evaluated using:
 
-* Accuracy
-* Precision
-* Recall
-* F1 Score
-* Confusion Matrix
-* Training and Validation Loss Curves
+- Accuracy
+- Precision
+- Recall
+- F1 Score
+- Confusion Matrix
+- Training Loss
+- Validation Loss
 
 ---
 
-# 🚀 Future Improvements
+## Future Work
 
-* Transfer Learning (ResNet, EfficientNet)
-* Grad-CAM Visualizations
-* K-Fold Cross Validation
-* Early Stopping
-* Ensemble Models
-* Real-Time Defect Detection System
-* Web Deployment using FastAPI or Flask
+- Transfer Learning (ResNet, EfficientNet)
+- Grad-CAM Explainability
+- Cross Validation
+- Early Stopping
+- Ensemble Learning
+- Real-Time Defect Detection
+- Deployment using FastAPI
 
 ---
 
-# 📚 References
+## References
 
 1. NEU Surface Defect Database
 2. PyTorch Documentation
@@ -314,7 +293,9 @@ The models are evaluated using:
 
 <div align="center">
 
-### ⭐ If you found this project useful, consider giving it a star!
+**Built with PyTorch for intelligent manufacturing and computer vision research.**
+
+⭐ Star this repository if you found it useful.
 
 </div>
-```
+````
